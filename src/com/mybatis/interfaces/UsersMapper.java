@@ -1,6 +1,7 @@
  package com.mybatis.interfaces;
 
 import java.util.List;
+import java.util.Map;
 
 import com.mybatis.model.Article;
 import com.mybatis.model.Users;
@@ -10,6 +11,12 @@ import com.mybatis.model.Users;
 	 public Users selectUsersByID(int id);
 	 
 	 public List<Users> selectUsers(String userName);
+	 
+	 public List<Users> selectUsers(List<String> list);
+	 
+	 public List<Users> selectUsers2(String[] str);
+	 
+	 public List<Users> selectUsers3(Map<String, Object> map);
 	 
 	 public void addUsers(Users users);
 	 

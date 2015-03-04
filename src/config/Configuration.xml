@@ -19,7 +19,7 @@
 		</environment>
 	</environments>
 	
-	<!-- <mappers>
+	<mappers>
 		<mapper resource="com/mybatis/mapper/Users.xml"/>
-	</mappers> -->
+	</mappers>
 </configuration>
