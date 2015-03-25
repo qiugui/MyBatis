@@ -29,47 +29,25 @@ public class GenMain {
 		File configFile = new File(GenMain.class.getResource(genCfg).getFile());
 		
 		ConfigurationParser cp = new ConfigurationParser(warnings);
+		DefaultShellCallback callback = new DefaultShellCallback(overwrite);
 		
+		MyBatisGenerator myBatisGenerator = null;
 		Configuration config = null;
 		
 		try {
 			config=cp.parseConfiguration(configFile);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			 e.printStackTrace();
-			 
-		} catch (XMLParserException e) {
-			// TODO Auto-generated catch block
-			 e.printStackTrace();
-			 
-		}
-		
-		DefaultShellCallback callback = new DefaultShellCallback(overwrite);
-		
-		MyBatisGenerator myBatisGenerator = null;
-		
-		try {
 			myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
-		} catch (InvalidConfigurationException e) {
-			// TODO Auto-generated catch block
-			 e.printStackTrace();
-			 
-		}
-		
-		try {
 			myBatisGenerator.generate(null);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			 e.printStackTrace();
-			 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			 e.printStackTrace();
-			 
+		} catch (XMLParserException e) {
+			 e.printStackTrace();
+		} catch (SQLException e) {
+			 e.printStackTrace();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			 e.printStackTrace();
-			 
+		} catch (InvalidConfigurationException e) {
+			 e.printStackTrace();
 		}
 
 	}
